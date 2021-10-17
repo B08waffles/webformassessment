@@ -1,0 +1,98 @@
+<!--Use semantic elements, restyle fieldset and legend-->    
+<!DOCTYPE html>
+<html lang=en class="#">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Web Form</title>
+      
+   <link rel="stylesheet" type="text/css" href="../css/styles.css" >
+   <script src="../js/scripts.js" defer></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></head>
+  <body>
+    
+<!--Seven form elements with at least three different input types-->
+    <form name='form' class="form" id="form" >
+       
+        <fieldset> <legend>User Registration:</legend>
+          <img src="../img/drawing.svg" alt="Italian Trulli">
+          
+          <section class='form-control'><h6>Given Name:</h6>
+            <label for="fname">First name:</label>  <span class="hovertext" data-hover="Minimum 2 characters maximum 50 characters">
+              tooltip*
+            </span><br>
+            <input type="text" id="fname" name="fname" class='fname' maxlength="50" minlength="2" placeholder="First name">
+            <div class='error'></div>
+            <i class="material-icons">block</i>
+           <small></small>
+          </section><br>
+          <section class='form-control'><h6>Family Name:</h6>
+          <label for="lname">Last name:</label><span class="hovertext" data-hover="Minimum 2 characters maximum 50 characters">
+            tooltip*
+          </span><br>
+          <input type="text" id="lname" name="lname" maxlength="50" minlength="2" placeholder="Last name"> 
+          <div class='error'></div>
+          <i class="material-icons">block</i>
+           <small></small>
+          </section><br>
+          <section class='form-control'><h6>Your email adress</h6>
+          <label for="email">Email Address:</label><span class="hovertext" data-hover="Must be a valid email address with a @ and a .com">
+            tooltip*
+          </span><br>
+          <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="user@email.com" >
+          <div class='error'></div>
+          <i class="material-icons">block</i>
+          <small></small>
+          </section><br>
+          <section class='form-control'><h6>Your phone number</h6>
+            <label for="pnumber">Phone Number:</label><span class="hovertext" data-hover="Minimum 8 characters maximum 10 characters">
+              tooltip*
+            </span><br>
+          <input type="tel" id="pnumber" name="pnumber" minlength="8" maxlength="10" placeholder="Phone number">
+          <div class='error'></div>
+          <i class="material-icons">block</i>
+          <small></small>
+          </section><br>
+          <section class='form-control'><h6>Date of Birth</h6>
+            <label for="dob">Date Of Birth:</label><span class="hovertext" data-hover="Must be before today and later than 1918-12-31">
+              tooltip*
+            </span><br>
+          <input type="date" id="dob" name="dob" max="2021-10-17"  min="1918-12-31" >
+          <div class='error'></div>
+          <i class="material-icons">block</i>
+          <small></small>
+          </section><br>
+          <section class='form-control'><h6>Create a password</h6>
+            <label for="pword">Password:</label><span class="hovertext" data-hover="Minimum 6 characters maximum 50 characters">
+              tooltip*
+            </span><br>
+          <input type="password" id="pword" name="pword" maxlength="50" minlength="6" placeholder="Password">
+          <div class='error'></div>
+          <i class="material-icons">block</i>
+          <small></small>
+          </section><br>
+          <section class="form-control"><h6>Type your password again</h6>
+            <label for="pwordc">Confirm Password:</label><span class="hovertext" data-hover="Must be the same as above password">
+              tooltip*
+            </span><br>
+          <input type="password" id="pwordc" name="pwordc" maxlength="50" minlength="6" placeholder="Retype password">
+          <div class='error'></div>
+          <i class="material-icons">block</i>
+          <small></small>
+          </section><br> <br>
+          <section class='notrequired'><h6>User Feedback</h6>
+            <label for='notre'>(Optional) How did you find us?</label><br>
+            <input type="text" id='notre' name='notre' placeholder="Tell us how you found us"> <br>
+            <div class='error'></div>
+            
+          </section>
+          <button id='submit' class='submit'>Submit</button><br>
+<!-- Overlay an absolutely positioned video element on hover of the ‘help’ link--> 
+         Need help?<a href="">Hover here! </a><iframe width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+</iframe>
+         
+        </fieldset>
+      </form>
+      
+      </body>
+   
+</html> 
