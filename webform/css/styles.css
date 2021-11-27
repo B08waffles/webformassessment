@@ -1,0 +1,282 @@
+/* Use semantic elements, restyle fieldset and legend */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(32, 22, 41);
+    font-family: sans-serif;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+}
+
+/* Use of SVG logo created in illustrator/inkscape include source file
+SVG scales in mediaquery still legible in mobile */
+fieldset img {
+    height: 150px;
+    width: 220px;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    left: 13px;
+
+}
+
+form {
+    padding: 30px 40px;
+    background-color: rgb(60, 40, 83);
+    margin-top: 2em;
+    color: silver;
+    border: 2px solid #3cb9ac;
+}
+
+fieldset {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    border-color: #2a9397;
+}
+
+fieldset label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.error {
+    display: block;
+}
+
+div {
+    font-size: xx-small;
+}
+
+/* Layout demonstrates consistent width input fields */
+fieldset input {
+    border: 2px solid #3cb9ac;
+    border-radius: 4px;
+    display: grid;
+    font-family: inherit;
+    font-size: 14px;
+    width: 100%;
+    padding: 20px;
+    padding-left: 50px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #e8e9eb;
+    grid-template-columns: 1fr 1fr;
+}
+
+fieldset section:nth-of-type(8) input {
+    height: 46px;
+    padding-left: 5px;
+}
+
+legend {
+    background-color: #e8e9eb;
+    border-bottom: 1px solid #3cb9ac;
+    padding: 20px 40px;
+    font-size: large;
+    color: rgb(0, 0, 0);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    justify-self: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.form-control small {
+    visibility: hidden;
+    bottom: 0;
+    left: 0;
+}
+
+h6 {
+    margin-bottom: -1px;
+}
+
+.submit {
+    background-color: #8e44ad;
+    border: 2px solid #8e44ad;
+    color: #fff;
+    display: grid;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    font-family: inherit;
+}
+
+.form-control.error input {
+    border-color: red;
+}
+
+.form-control.success input {
+    border-color: seagreen;
+}
+
+.form-control.error small {
+    visibility: visible;
+    color: red;
+}
+
+/* Use ::before or ::after pseudoelements to denote fields with required attribute */
+
+.form-control::after {
+    content: "Required*";
+    color: red;
+    display: grid;
+    font-size: x-small;
+}
+
+.form-control.error::after {
+    content: "Mandatory, try again!";
+    font-size: x-small;
+}
+
+.form-control.success::after {
+    content: "Correct";
+}
+
+.form-control.error::after {
+    content: "";
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    min-height: 56px;
+    min-width: 35px;
+    z-index: 1;
+    clear: both;
+    margin-top: -60px;
+    margin-left: 2px;
+    height: 53px;
+    border-radius: 3px 0 0 3px;
+    background-image: url("../img/report.jpg");
+}
+
+section:nth-of-type(8):after {
+    margin-top: -62px;
+    background-image: none;
+}
+
+/* Mediaquery remove labels in mobile view and set width 100% */
+/* Use display: grid and @mediaquery to remove the one input not required */
+@media only screen and (max-width: 768px) {
+    body {
+        width: 100%;
+    }
+
+    .form-control label {
+        display: none;
+    }
+
+    .notrequired {
+        display: grid;
+        visibility: hidden;
+    }
+
+    .form-control h6 {
+        display: none;
+    }
+
+    /* overrule typical form and label behaviour */
+    form {
+        overflow: hidden;
+        position: relative;
+        font-size: small;
+    }
+
+}
+
+/* Use four form-specific pseudoclasses to aide in user input */
+#dob:out-of-range {
+    color: orange;
+}
+
+#dob:in-range {
+    color: rgb(0, 0, 0);
+}
+
+input:invalid {
+    background-color: #e8e9eb;
+}
+
+#notre:optional {
+    background-color: rgb(239, 236, 255);
+    color: black;
+}
+
+input:valid {
+    color: #3eb8aa;
+}
+
+/* Overlay an absolutely positioned video element on hover of the ‘help’ link */
+
+iframe {
+    display: none;
+    z-index: 5;
+    border: 0;
+    outline: 0;
+}
+
+a {
+    color: pink;
+}
+
+a:hover~iframe {
+    display: block;
+    position: absolute;
+    z-index: 15;
+    background-position-y: top;
+    padding-bottom: 2em;
+    margin-top: -25px;
+}
+
+/* Ensure the user is aware of erroneous input as they are inputting text into your form */
+.hovertext {
+    position: relative;
+    border-bottom: 1px dotted black;
+    font-size: small;
+    color: #3cb9ac;
+}
+
+.hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+}
+
+.hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+    font-size: small;
+}
+
+/* Use an absolutely positioned icon inside each relatively positioned text or number input field with ::after */
+.form-control i {
+    display: none;
+}
+
+.form-control.error i::after {
+    color: #e74c3c;
+    visibility: visible;
+    position: absolute;
+    right: 125px;
+}
+
+.form-control.error i.material-icons {
+    color: #e74c3c;
+    visibility: visible;
+}

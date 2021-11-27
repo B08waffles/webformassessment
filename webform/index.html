@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang=en class="#">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Web Form</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<script src="js/scripts.js" defer></script>
+</head>
+<!--Use semantic elements, restyle fieldset and legend-->
+
+<body>
+
+    <!--Seven form elements with at least three different input types-->
+    <form name='form' class="form" id="form">
+
+        <fieldset>
+            <legend>User Registration:</legend><br>
+
+            <img src="img/drawing.svg" alt="Italian Trulli"><br><br>
+            <!-- Overlay an absolutely positioned video element on hover of the ‘help’ link-->
+            <a href="/">Help</a><iframe width="420" height="315"
+                src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+            </iframe>
+            <section class='form-control'>
+                <h6>First Name:</h6>
+                <span class="hovertext" data-hover="Must be only letters and 3 characters or more">
+                    tooltip*
+                </span>
+                <input type="text" required id="fname" name="fname" class='fname' pattern="[A-Za-z].{2,}" maxlength="50"
+                    minlength="2" placeholder="First name" title="Only upper and lower case letters"
+                    oninput="fnameValidation()">
+                <div class='error' id="fname-error"></div>
+                <i class="material-icons">block</i>
+                <small></small>
+            </section><br>
+            <section class='form-control'>
+                <h6>Last Name:</h6>
+                <span class="hovertext" data-hover="Must be only letters and 3 characters or more">
+                    tooltip*
+                </span>
+                <input type="text" id="lname" required name="lname" pattern="[A-Za-z].{2,}" maxlength="50" minlength="2"
+                    placeholder="Last name" title="Only upper and lower case letters" oninput="lnameValidation()">
+                <div class='error' id="lname-error"></div>
+                <i class="material-icons">block</i>
+                <small></small>
+            </section><br>
+            <section class='form-control'>
+                <h6>Email Address:</h6>
+                <span class="hovertext" data-hover="Must be a valid email address with a @ and a .com">
+                    tooltip*
+                </span>
+                <input type="email" id="email" required name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    placeholder="user@email.com" title="Must be a valid email" oninput="emailValidation()">
+                <div class='error' id="email-error"></div>
+                <i class="material-icons">block</i>
+                <small></small>
+            </section><br>
+            <section class='form-control'>
+                <h6>Phone Number:</h6>
+                <span class="hovertext" data-hover="Minimum 8 characters maximum 10 characters">
+                    tooltip*
+                </span>
+                <input type="tel" id="pnumber" required name="pnumber" minlength="7" maxlength="12"
+                    placeholder="Phone number" pattern="[0-9].{7,}" title="must be a valid phone or mobile number"
+                    oninput="pnumberValidation()">
+                <div class='error' id="pnumber-error"></div>
+                <i class="material-icons">block</i>
+                <small></small>
+            </section><br>
+            <section class='form-control'>
+                <h6>Password:</h6>
+                <span class="hovertext"
+                    data-hover="Requires at least 1 uppercase letter, 1 special character, 1 lowercase letter, 1 number and must be at least 5 characters long">
+                    tooltip*
+                </span>
+                <input type="password" id="pword" required name="pword" maxlength="50" minlength="5"
+                    placeholder="Password"
+                    title="Must have at least 1 uppercase,1 special character, 1 lowercase and 1 number"
+                    pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{3,}" oninput="pwordValidation()">
+                <div class='error' id="pword-error"></div>
+                <i class="material-icons">block</i>
+                <small></small>
+            </section><br>
+            <section class="form-control">
+                <h6>Confirm Password</h6>
+                <span class="hovertext" data-hover="Must be the same as above password">
+                    tooltip*
+                </span>
+                <input type="password" id="pwordc" required name="pwordc" maxlength="50" minlength="6"
+                    oninput="pwordcValidation()" title="Must match your previous password" placeholder="Retype password"
+                    pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{5,}">
+                <div class='error' id="pwordc-error"></div>
+                <i class="material-icons">block</i>
+                <small></small>
+            </section><br> <br>
+            <section class='notrequired'>
+                <h6>(Optional) How did you find us?</h6>
+
+                <input type="text" id='notre' name='notre' placeholder="Tell us how you found us"
+                    title="Tell us more about how you found us" pattern="[a-zA-Z].{0,}">
+                <br>
+                <div class='error'></div>
+
+            </section>
+            <button id='submit' class='submit'>Submit</button><br>
+
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
